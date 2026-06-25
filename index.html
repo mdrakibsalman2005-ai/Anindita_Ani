@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dear Anindita ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+overflow-x:hidden;
+background:linear-gradient(-45deg,#ffd6e7,#f8e8ff,#d8f3ff,#fff0f5);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+transition:0.5s;
+}
+
+body.dark{
+background:linear-gradient(-45deg,#0f172a,#1e293b,#111827,#1f2937);
+color:white;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:100%;
+max-width:850px;
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 40px rgba(0,0,0,.15);
+text-align:center;
+position:relative;
+z-index:2;
+animation:fadeUp 1.5s ease;
+}
+
+body.dark .card{
+background:rgba(255,255,255,0.08);
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-size:3rem;
+color:#ff4f8b;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:1rem;
+opacity:.8;
+margin-bottom:25px;
+}
+
+#typewriter{
+font-size:1.1rem;
+line-height:1.9;
+min-height:250px;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+margin:10px;
+font-size:1rem;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.primary{
+background:#ff4f8b;
+color:white;
+}
+
+.secondary{
+background:#7c3aed;
+color:white;
+}
+
+.toggle{
+background:#111827;
+color:white;
+}
+
+.quote{
+margin-top:30px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,.2);
+font-style:italic;
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.5);
+visibility:hidden;
+opacity:0;
+transition:.4s;
+z-index:100;
+}
+
+.popup.show{
+visibility:visible;
+opacity:1;
+}
+
+.popup-content{
+background:white;
+padding:40px;
+border-radius:25px;
+max-width:500px;
+text-align:center;
+animation:pop .5s ease;
+}
+
+.popup-content h2{
+color:#ff4f8b;
+margin-bottom:15px;
+}
+
+@keyframes pop{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.close{
+margin-top:20px;
+background:#ff4f8b;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+
+.footer{
+margin-top:30px;
+font-size:.95rem;
+opacity:.8;
+}
+
+.floating{
+position:fixed;
+font-size:20px;
+pointer-events:none;
+animation:float linear forwards;
+z-index:1;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+to{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+.music-note{
+position:absolute;
+top:20px;
+right:20px;
+font-size:1.3rem;
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:2rem;
+}
+
+.card{
+padding:25px;
+}
+
+#typewriter{
+font-size:1rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+<div class="music-note">🎵</div>
+
+<h1>Dear Anindita ❤️</h1>
+
+<p class="subtitle">
+A small apology from someone who values your friendship.
+</p>
+
+<div id="typewriter"></div>
+
+<button class="btn primary" onclick="showPopup()">
+Can We Be Friends Again?
+</button>
+
+<button class="btn secondary" onclick="toggleMusic()">
+🎵 Music
+</button>
+
+<button class="btn toggle" onclick="toggleTheme()">
+🌙 Day / Night
+</button>
+
+<div class="quote">
+“Some people enter our lives quietly, yet their presence becomes impossible to ignore. Thank you for being one of those people.”
+</div>
+
+<div class="footer">
+No matter what your answer is, thank you for being a beautiful part of my life. ❤️
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Your Friendship Means A Lot To Me ❤️</h2>
+
+<p>
+I know I haven't been the best at staying in touch lately,
+and I'm genuinely sorry for that.
+
+This page is simply my way of saying:
+Thank you for being my friend.
+</p>
+
+<button class="close" onclick="hidePopup()">
+Close
+</button>
+</div>
+</div>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const text = `
+
+I know I've been distant lately, and I'm truly sorry for the silence.
+
+Sometimes life gets messy, and without realizing it, I let the distance grow.
+
+But that doesn't change how much I value our friendship.
+
+I never wanted my lack of communication to make you feel unimportant.
+
+The truth is, I miss our conversations, our random talks, and the comfort of knowing you're there.
+
+This page isn't here to pressure you into anything.
+
+It's simply my way of saying:
+
+I'm sorry.
+
+If I've hurt you, disappointed you, or made you feel ignored, please know it was never intentional.
+
+Friendships are rare, and yours means more to me than I may have shown.
+
+No expectations.
+No conditions.
+
+Just a sincere apology from someone who genuinely values your friendship.
+
+— Salman ❤️
+
+`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < text.length){
+document.getElementById("typewriter").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter,30);
+}
+
+}
+
+typeWriter();
+
+function showPopup(){
+document.getElementById("popup").classList.add("show");
+}
+
+function hidePopup(){
+document.getElementById("popup").classList.remove("show");
+}
+
+const music = document.getElementById("music");
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+
+}
+
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+
+function createFloating(){
+
+const el = document.createElement("div");
+
+el.classList.add("floating");
+
+const items = ["❤️","⭐","✨","🌷"];
+
+el.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+el.style.left = Math.random()*100 + "vw";
+
+el.style.fontSize = (15 + Math.random()*25) + "px";
+
+el.style.animationDuration = (6 + Math.random()*6) + "s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>{
+el.remove();
+},12000);
+
+}
+
+setInterval(createFloating,500);
+
+</script>
+
+</body>
+</html>
